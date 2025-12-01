@@ -1,0 +1,23 @@
+{
+  "name": "caex-drawbot-gcode",
+  "version": "1.0.0",
+  "description": "Pen Plotter G-Code Generator - Generates g-code from images using Hatch Sawtooth algorithm",
+  "main": "gcode-generator.js",
+  "scripts": {
+    "serve": "npx http-server -p 8080",
+    "test": "npx playwright test",
+    "test:headed": "npx playwright test --headed"
+  },
+  "keywords": [
+    "gcode",
+    "pen-plotter",
+    "drawbot",
+    "svg",
+    "image-processing"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.40.0"
+  }
+}
