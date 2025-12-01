@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pen Plotter G-Code Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Pen Plotter G-Code Generator</h1>
+        <p>Upload an image to generate G-Code for drawing with a pen plotter using the Hatch Sawtooth algorithm.</p>
+        
+        <div class="upload-section">
+            <input type="file" id="imageInput" accept="image/*">
+            <label for="imageInput" class="upload-btn">Choose Image</label>
+            <span id="fileName" class="file-name">No file chosen</span>
+        </div>
+
+        <div class="settings-section">
+            <h3>Settings</h3>
+            <div class="setting">
+                <label for="cellSize">Cell Size (px):</label>
+                <input type="number" id="cellSize" value="5" min="1" max="50">
+            </div>
+            <div class="setting">
+                <label for="maxAmplitude">Max Amplitude (mm):</label>
+                <input type="number" id="maxAmplitude" value="2" min="0.1" max="10" step="0.1">
+            </div>
+            <div class="setting">
+                <label for="outputWidth">Output Width (mm):</label>
+                <input type="number" id="outputWidth" value="100" min="10" max="500">
+            </div>
+            <button id="generateBtn" class="generate-btn" disabled>Generate G-Code</button>
+        </div>
+
+        <div id="previewSection" class="preview-section" style="display: none;">
+            <h2>Original Image</h2>
+            <div class="image-container">
+                <canvas id="originalCanvas"></canvas>
+            </div>
+        </div>
+
+        <div id="svgSection" class="svg-section" style="display: none;">
+            <h2>SVG Preview (Pen Path)</h2>
+            <div id="svgContainer" class="svg-container"></div>
+        </div>
+
+        <div id="gcodeSection" class="gcode-section" style="display: none;">
+            <h2>G-Code Output</h2>
+            <button id="downloadBtn" class="download-btn">Download G-Code</button>
+            <textarea id="gcodeOutput" readonly></textarea>
+        </div>
+    </div>
+
+    <script src="gcode-generator.js"></script>
+</body>
+</html>
